@@ -39,11 +39,14 @@ const Prompts = () => {
   }
   const handleOnBlur = e => {
     e.preventDefault();
-    const key = Object.keys(data)[0];
-    const value = Object.values(data)[0];    
-    let answer = setLine(key, value);
-    actions.setEssayData(data);
-    actions.setEssayText(answer);
+    let key = Object.keys(data)[0];
+    let value = Object.values(data)[0]; 
+    if(value) {
+      let answer = setLine(key, value);
+      actions.setEssayData(data);
+      actions.setEssayText(answer);
+      setData({});
+    }   
   }
   const handleOnFocus = e => {
     e.preventDefault();
