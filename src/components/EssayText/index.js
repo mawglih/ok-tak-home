@@ -7,12 +7,11 @@ const EssayText = ({ startOver }) => {
   const [str, setStr] = useState('');
   const handleChange = () => console.log(data)
   const handleClick = e => startOver(e);
-  console.log('data', data)
   
   useEffect(() => {
     let newStr = '';
     data.map(element => {
-      let str = Object.values(element)[0];
+      let str = element.answer ? element.string.replace(/\$answer/ig, element.answer) : '';
       return newStr += str;
       });
       setStr(newStr);

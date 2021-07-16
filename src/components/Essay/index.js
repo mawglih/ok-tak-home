@@ -6,13 +6,15 @@ const Essay = ({ handleClick }) => {
   const text = useSelector(state => state.essayText);
   const [buttonStatus, setButtonStatus] = useState('hidden');
   const setEdit = e => handleClick(e);
-  const Essay = () => {
+  const EssayText = () => {
     return (
       <div className="essay">
         {text.map(item => {
-          console.log('item', item)
             return ( 
-              <span key = {item.id}>{item.string.replace(/\$answer/ig, item.answer)}</span>
+              item.answer ? (
+              <span key = {item.id}>{item.string.replace(/\$answer/ig, item.answer)}</span>) : (
+                <span></span>
+              )
           )})
         }
       </div>
@@ -26,7 +28,7 @@ const Essay = ({ handleClick }) => {
     <div className="vertical">
       <div className="textField">
         <h2>Your essay text</h2>
-        <Essay />
+        <EssayText />
         <button className = {`btn ${buttonStatus}`} onClick={setEdit}>Edit text</button>
       </div>
     </div>

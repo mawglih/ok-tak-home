@@ -54,7 +54,7 @@ export function reducer(state = INITIAL_STATE, {type, payload}) {
         fieldAnswers: {...state.fieldAnswers, ...payload},
       }
     }
-    case SET_ESSAY_TEXT: {
+    case SET_ESSAY_TEXT:{
       return {
         ...state,
         essayText: [...state.essayText, payload],
