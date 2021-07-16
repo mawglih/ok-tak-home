@@ -30,8 +30,11 @@ const Prompts = () => {
   const setLine = (key, value) => {
     const obj = {};
     let num = getTextTemplates(FIELD_NAMES[key]).length;
-    obj[key] = getTextTemplates(FIELD_NAMES[key])[getRandom(num)].replace('$answer',value);
-
+    obj.id = Math.floor(Math.random() * 1000);
+    obj.question = key;
+    obj.answer = value;
+    obj.string = getTextTemplates(FIELD_NAMES[key])[getRandom(num)] + ' ';
+    console.log(obj);
     return obj;
   }
   const handleOnBlur = e => {

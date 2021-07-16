@@ -9,9 +9,12 @@ const Essay = ({ handleClick }) => {
   const Essay = () => {
     return (
       <div className="essay">
-        {text.map((item, ind) => {
-          return Object.values(item).map(el => <span key={ind}>{el}</span>)
-        })}
+        {text.map(item => {
+          console.log('item', item)
+            return ( 
+              <span key = {item.id}>{item.string.replace(/\$answer/ig, item.answer)}</span>
+          )})
+        }
       </div>
     )
   }
